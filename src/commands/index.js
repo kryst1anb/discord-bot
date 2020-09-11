@@ -3,9 +3,7 @@ const hey = require("./hey");
 const guildID = process.env.GUILD_ID;
 const channelID = process.env.CHANNEL_ID;
 
-const commands = {
-  hey,
-};
+const commands = { hey };
 
 module.exports = async (msg) => {
   console.log(msg);
@@ -18,6 +16,10 @@ module.exports = async (msg) => {
 
     if (Object.keys(commands).includes(command)) {
       commands[command](msg, args);
+    } else {
+      console.error("Error2");
     }
+  } else {
+    console.error("Error1");
   }
 };
